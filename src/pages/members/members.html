@@ -1,0 +1,27 @@
+<!--
+  Generated template for the MembersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>members</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+    <ion-list>
+        <ion-item *ngFor="let item of customers; let memberIndex = index">
+          <h2>{{item.name}}</h2>
+          <p>{{item.status}}</p>
+          <ion-note item-end><button ion-button color="dark" round  (click)="allow(item,memberIndex)">Block</button></ion-note>
+        </ion-item>
+        <ion-item *ngIf="nocustomers" text-center>
+          <h2>Nothing here</h2>
+        </ion-item>
+      </ion-list>
+</ion-content>
