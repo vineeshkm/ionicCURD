@@ -18,7 +18,7 @@
         <ion-item *ngFor="let item of customers; let memberIndex = index">
           <h2>{{item.name}}</h2>
           <p>{{item.status}}</p>
-          <ion-note item-end><button ion-button color="dark" round  (click)="allow(item,memberIndex)">Block</button></ion-note>
+          <ion-note item-end><button ion-button color="dark" round  (click)="allow(item,memberIndex)">Block</button><button ion-button color="red" round  (click)="delete(item,memberIndex)">Delete</button></ion-note>
         </ion-item>
         <ion-item *ngIf="nocustomers" text-center>
           <h2>Nothing here</h2>

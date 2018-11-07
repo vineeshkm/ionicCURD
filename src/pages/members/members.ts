@@ -98,5 +98,43 @@ export class MembersPage {
    
     //console.log(item);
   }
+  public delete(item,memberIndex){
 
+    this.authService.postData(item,"delete").then((result)=>{
+      this.resposeData = result;
+      //console.log(result['error'].text);
+      if(result['error'].text=="Deleted successfully")
+      {
+        this.loading.dismissAll();
+        const toast = this.toastCtrl.create({
+          message: 'Deleted Successfully',
+          showCloseButton: false,
+          position : "top",          
+          duration: 2000,
+        });
+        toast.present();
+        this.customers.splice(memberIndex,1);
+      }else{
+        this.loading.dismissAll();
+        const toast = this.toastCtrl.create({
+          message: result['error'].text,
+          showCloseButton: true,
+          closeButtonText: 'Ok',
+          duration: 3000,
+        });
+        toast.present();
+      }
+    }, (err) => {
+      this.loading.dismissAll();
+      const toast = this.toastCtrl.create({
+        message: 'Network Error',
+        showCloseButton: true,
+        closeButtonText: 'Ok',
+        duration: 3000,
+      });
+      toast.present();
+    });
+   
+    //console.log(item);
+  }
 }

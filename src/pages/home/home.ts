@@ -19,7 +19,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,public authService: AuthServiceProvider,public loadingController:LoadingController,public toastCtrl: ToastController) {
     if(localStorage.getItem('userData')){
       this.sessionData=JSON.parse(localStorage.getItem('userData'));
-      if(this.sessionData.email!=""){
+      if(this.sessionData.email!="")
+      {
         if(this.sessionData.email=="ad12@gmail.com"){
           this.navCtrl.setRoot(ViewPage);
         }
